@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmrsqql0n4ofy"]
+
+[ext_resource type="PackedScene" uid="uid://b74l3ldlcm1i5" path="res://Scenes/main.tscn" id="1_02ndj"]
+[ext_resource type="PackedScene" uid="uid://4n8by1gscqsc" path="res://Scenes/Player.tscn" id="1_7gel0"]
+[ext_resource type="Script" path="res://Scripts/cloth_item.gd" id="3_uycud"]
+[ext_resource type="Texture2D" uid="uid://ceic847pl7kcx" path="res://Assets/Sprites/Hat_.png" id="4_5kmd6"]
+[ext_resource type="Texture2D" uid="uid://b1sn3t5t102gg" path="res://Assets/Sprites/Shirt_.png" id="5_x1fxx"]
+[ext_resource type="Texture2D" uid="uid://ctpdb5vf63ni3" path="res://Assets/Sprites/Pant_.png" id="6_7so46"]
+[ext_resource type="Texture2D" uid="uid://p57r1krhjaco" path="res://Assets/Sprites/Shoes_.png" id="7_312cw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dcivg"]
+size = Vector2(1380, 1002)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("3_uycud")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(238, 114)
+zoom = Vector2(0.105, 0.105)
+
+[node name="Control" parent="." instance=ExtResource("1_02ndj")]
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5271.0
+offset_top = -2854.0
+offset_right = -5271.0
+offset_bottom = -2854.0
+scale = Vector2(8.0041, 8.0419)
+
+[node name="Player" parent="." instance=ExtResource("1_7gel0")]
+z_as_relative = false
+position = Vector2(120, 1288)
+scale = Vector2(2.36407, 2.28)
+
+[node name="Hat" type="Node2D" parent="."]
+position = Vector2(7017, -1633)
+
+[node name="Sprite2D" type="Sprite2D" parent="Hat"]
+scale = Vector2(5.4723, 5.04889)
+texture = ExtResource("4_5kmd6")
+
+[node name="Area2D" type="Area2D" parent="Hat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hat/Area2D"]
+shape = SubResource("RectangleShape2D_dcivg")
+
+[node name="Shirt" type="Node2D" parent="."]
+position = Vector2(7017, -255)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shirt"]
+scale = Vector2(5.4723, 5.04889)
+texture = ExtResource("5_x1fxx")
+
+[node name="Area2D" type="Area2D" parent="Shirt"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shirt/Area2D"]
+shape = SubResource("RectangleShape2D_dcivg")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[node name="Pant" type="Node2D" parent="."]
+position = Vector2(7017, 1131)
+
+[node name="Sprite2D" type="Sprite2D" parent="Pant"]
+scale = Vector2(5.4723, 5.04889)
+texture = ExtResource("6_7so46")
+
+[node name="Area2D" type="Area2D" parent="Pant"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pant/Area2D"]
+shape = SubResource("RectangleShape2D_dcivg")
+
+[node name="Shoes" type="Node2D" parent="."]
+position = Vector2(7017, 2535)
+
+[node name="Sprite2D" type="Sprite2D" parent="Shoes"]
+scale = Vector2(5.4723, 5.04889)
+texture = ExtResource("7_312cw")
+
+[node name="Area2D" type="Area2D" parent="Shoes"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shoes/Area2D"]
+shape = SubResource("RectangleShape2D_dcivg")

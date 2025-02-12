@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://4n8by1gscqsc"]
+
+[ext_resource type="Texture2D" uid="uid://pvjo5bwgn3k7" path="res://Assets/Sprites/Character_.png" id="1_i1mvt"]
+[ext_resource type="Script" path="res://Scripts/player_clothes.gd" id="1_ujnml"]
+[ext_resource type="Texture2D" uid="uid://ceic847pl7kcx" path="res://Assets/Sprites/Hat_.png" id="3_v8c5n"]
+[ext_resource type="Texture2D" uid="uid://b1sn3t5t102gg" path="res://Assets/Sprites/Shirt_.png" id="4_6jo1a"]
+[ext_resource type="Texture2D" uid="uid://ctpdb5vf63ni3" path="res://Assets/Sprites/Pant_.png" id="5_n2xn2"]
+[ext_resource type="Texture2D" uid="uid://p57r1krhjaco" path="res://Assets/Sprites/Shoes_.png" id="6_ed4yt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afww5"]
+size = Vector2(1018, 671)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8wq2"]
+size = Vector2(1020, 592)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2u86j"]
+size = Vector2(1010, 412)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_ujnml")
+
+[node name="PlayerSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i1mvt")
+
+[node name="HatSprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -408)
+texture = ExtResource("3_v8c5n")
+
+[node name="ShirtSprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, 75)
+texture = ExtResource("4_6jo1a")
+
+[node name="PantSprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 245)
+texture = ExtResource("5_n2xn2")
+
+[node name="ShoesSprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 390)
+texture = ExtResource("6_ed4yt")
+
+[node name="Hat Area" type="Node2D" parent="."]
+
+[node name="HatArea2D" type="Area2D" parent="Hat Area" groups=["clothes area"]]
+position = Vector2(4, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hat Area/HatArea2D"]
+position = Vector2(-12, -354.5)
+shape = SubResource("RectangleShape2D_afww5")
+
+[node name="Shirt Area" type="Node2D" parent="."]
+position = Vector2(0, 87)
+
+[node name="ShirtArea2D" type="Area2D" parent="Shirt Area" groups=["clothes area"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shirt Area/ShirtArea2D"]
+shape = SubResource("RectangleShape2D_q8wq2")
+
+[node name="Pant Area" type="Node2D" parent="."]
+position = Vector2(-5, 245)
+
+[node name="PantArea2D" type="Area2D" parent="Pant Area" groups=["clothes area"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pant Area/PantArea2D"]
+shape = SubResource("RectangleShape2D_2u86j")
+
+[node name="Shoes Area" type="Node2D" parent="."]
+position = Vector2(3, 419)
+
+[node name="ShoesArea2D" type="Area2D" parent="Shoes Area" groups=["clothes area"]]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shoes Area/ShoesArea2D"]
+shape = SubResource("RectangleShape2D_2u86j")

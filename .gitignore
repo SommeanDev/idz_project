@@ -1,0 +1,15 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# vscode specific ignores
+.vscode/
+
+# mp4, zip and apk files
+*.mp4
+*.zip
+*.apk
+*.aab
+
+# IDZ submission folder
+IDZ_Submission/
