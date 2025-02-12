@@ -10,6 +10,7 @@
 *.zip
 *.apk
 *.aab
+*.apk.idsig
 
 # IDZ submission folder
 IDZ_Submission/
